@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escuela Andrés Bello - Millahuín</title>
+    <!-- Importación de fuentes y iconos -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/eb43306d64.js" crossorigin="anonymous"></script>
+    
+    <style>
+        /* ESTILOS (CSS) - ASOCIADOS A LA IDENTIDAD VISUAL
+           Aquí definimos los colores, fuentes y cómo se verá cada elemento del Body.
+        */
+        :root {
+            --azul-corp: #2D72B5;
+            --amarillo-corp: #F2C100;
+            --rojo-corp: #E33E1B;
+            --blanco: #ffffff;
+            --gris-claro: #f4f4f4;
+            --negro: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--negro);
+            background-color: var(--blanco);
+            overflow-x: hidden;
+        }
+
+
+
+
+
+/* Header y Navegación */
+        header {
+            background: var(--blanco);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar {
+            background: var(--azul-corp);
+            color: white;
+            text-align: center;
+            padding: 5px 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 5%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .logo-container img {
+            height: 60px; /* Ajuste para logo rectangular */
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--azul-corp);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--rojo-corp);
+        }
+
+
+
+        /* Secciones Generales */
+        section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--azul-corp);
+            font-size: 2.5rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--amarillo-corp);
+            display: block;
+            margin: 10px auto;
+        }
+
+        /* Hero / Inicio */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-content h2 {
+            color: var(--azul-corp);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-media img, .hero-media video {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .btn-equipo {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: var(--amarillo-corp);
+            color: var(--azul-corp);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 50px;
+            transition: transform 0.3s;
+        }
+
+        .btn-equipo:hover {
+            transform: scale(1.05);
+            background: var(--azul-corp);
+            color: white;
+        }
+
+        /* Grid de Valores */
+        .valores-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .valor-card {
+            background: var(--gris-claro);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            border-bottom: 5px solid var(--amarillo-corp);
+        }
+
+        /* Documentos */
+        .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .btn-doc {
+            background: var(--azul-corp);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: 0.3s;
+        }
+
+        .btn-doc:hover {
+            background: var(--rojo-corp);
+        }
+
+        /* Convivencia y PIE - Animación Brillo */
+        .convivencia-destello {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            animation: pulse-shadow 3s infinite;
+        }
+
+        @keyframes pulse-shadow {
+            0% { box-shadow: 0 0 0 0 rgba(45, 114, 181, 0.4); }
+            70% { box-shadow: 0 0 0 20px rgba(45, 114, 181, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(45, 114, 181, 0); }
+        }
+
+        .grid-convivencia {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn-modal {
+            background: var(--gris-claro);
+            border: 2px solid var(--azul-corp);
+            padding: 15px;
+            cursor: pointer;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-modal:hover {
+            background: var(--azul-corp);
+            color: white;
+        }
+
+        /* Modales */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: white;
+            margin: 5% auto;
+            padding: 20px;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 15px;
+            position: relative;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            font-size: 30px;
+            cursor: pointer;
+            color: var(--rojo-corp);
+        }
+
+        /* Contacto */
+        .contacto-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border-radius: 15px;
+        }
+
+        /* Botón Flotante Appoderados */
+        .btn-flotante {
+    position: fixed;
+    right: 20px;
+    padding: 12px 18px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.btn-flotante i {
+    margin-right: 8px;
+}
+
+.btn-flotante:hover {
+    transform: scale(1.05);
+}
+
+/* Posiciones verticales */
+.appoderados {
+    bottom: 20px;
+    background-color: #007bff;
+}
+
+.whatsapp {
+    bottom: 80px;
+    background-color: #25D366;
+}
+
+.formulario {
+    bottom: 140px;
+    background-color: #ff9800;
+}
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: white;
+            padding: 60px 5% 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .footer-section h4 {
+            color: var(--amarillo-corp);
+            margin-bottom: 20px;
+            border-left: 4px solid var(--rojo-corp);
+            padding-left: 10px;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .dev-credit {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 0.8rem;
+        }
+
+        .btn-wsapp {
+            background: #25d366;
+            color: white !important;
+            padding: 8px 15px;
+            border-radius: 5px;
+            display: inline-block !important;
+            margin-top: 5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero, .contacto-container {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none; /* Simplificado para el ejemplo, podrías añadir un menú hamburguesa */
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. ENCABEZADO (Slogan y Logo) -->
+    <header>
+
+
+
+        <div class="top-bar">
+            "Formando el futuro con valores y excelencia" <!-- SLOGAN SOLICITADO -->
+        </div>
+        <nav>
+            <div class="logo-container">
+                <!-- El logo se ajusta automáticamente por el CSS (height: 60px) -->
+                <img src="logo.jpg" alt="Logo Escuela Andrés Bello" onerror="this.src='https://via.placeholder.com/200x60?text=Logo+Escuela'">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="informaciones.html">Informaciones</a></li>
+                <li><a href="documentos.html">Documentos</a></li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a href="convivencia.html">Convivencia/PIE</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+
+
+
+
+    <!-- 6. SECCIÓN CONVIVENCIA Y PIE -->
+    <section id="convivencia">
+        <h2 class="section-title">Convivencia Escolar y PIE</h2>
+        
+        <!-- Imagen de Canva Central con Destello -->
+        <div class="convivencia-destello">
+            <div style="position: relative; width: 100%; height: 0; padding-top: 83.8298%; padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px;">
+                <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;"
+                    src="https://www.canva.com/design/DAHCzz5J1Hg/05OQ99wUFgo-p2S1C1eyRA/view?embed" allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <div class="grid-convivencia">
+            <button class="btn-modal" onclick="openModal('modalNormas')">Normas de Convivencia</button>
+            <button class="btn-modal" onclick="openModal('modalVideoMes')">Video del Mes</button>
+            <button class="btn-modal" onclick="openModal('modalRecursos')">Recursos Genially</button>
+            <button class="btn-modal" onclick="window.open('URL_CARPETA_DRIVE', '_blank')">Historial (Drive)</button>
+        </div>
+    </section>
+
+       <!-- MODALES (Ventanas Emergentes) -->
+    
+    <!-- Modal Equipo -->
+    <div id="modalEquipo" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modalEquipo')">&times;</span>
+            <h2>Nuestro Equipo</h2>
+            <div class="valores-grid">
+                <!-- Ejemplo de ficha de equipo -->
+                <div class="valor-card">
+                    <img src="Equipo/director.jpg" alt="Director" onerror="this.src='https://via.placeholder.com/100'" style="border-radius: 50%; width: 100px;">
+                    <h4>Nombre Director</h4>
+                    <p>Director</p>
+                </div>
+                <div class="valor-card">
+                    <img src="Equipo/docente1.jpg" alt="Docente" onerror="this.src='https://via.placeholder.com/100'" style="border-radius: 50%; width: 100px;">
+                    <h4>Nombre Docente</h4>
+                    <p>Jefe de UTP</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Normas -->
+    <div id="modalNormas" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modalNormas')">&times;</span>
+            <h2>Normas de Convivencia</h2>
+            <img src="convpie/normas.jpg" alt="Normas" style="width: 100%; border-radius: 10px;" onerror="this.src='https://via.placeholder.com/800x1200?text=Imagen+Normas+Convivencia'">
+        </div>
+    </div>
+
+    <!-- Modal Video Mes -->
+    <div id="modalVideoMes" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modalVideoMes')">&times;</span>
+            <h2>Video del Mes</h2>
+            <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%; padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); border-radius: 8px; overflow: hidden;">
+                <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;"
+                    src="https://www.canva.com/design/DAHCzkxVkO0/VY6ajRJnsC1w_wzFliUPFg/watch?embed" allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Recursos Genially -->
+    <div id="modalRecursos" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modalRecursos')">&times;</span>
+            <h2>Recursos de Convivencia</h2>
+            <div style="width: 100%; height: 500px;">
+                <iframe src="https://view.genially.com/69a5a617ec2141c1ee4cb487/interactive-content-recursos-convivencia-escolar" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOTÓN FLOTANTE FORMULARIO -->
+<a href="https://tusitio.cl/formulario" 
+   target="_blank" 
+   class="btn-flotante formulario">
+   <i class="fas fa-file-alt"></i> Matricula
+</a>
+
+
+   
+
+<!-- BOTÓN FLOTANTE WHATSAPP -->
+<a href="https://wa.me/56956980409" 
+   target="_blank" 
+   class="btn-flotante whatsapp">
+   <i class="fab fa-whatsapp"></i> WhatsApp
+</a>
+
+
+ <!-- BOTÓN FLOTANTE APPODERADOS -->
+<a href="https://appoderado.cl/sistema/index-login" 
+   target="_blank" 
+   class="btn-flotante appoderados">
+   <i class="fas fa-mobile-alt"></i> Appoderados
+</a>
+
+
+
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h4>Escuela Andrés Bello</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Sector Millahuín, Padre las Casas</p>
+                <p><i class="fas fa-phone"></i> +5693299979 | +56956980409</p>
+                <p><i class="fas fa-envelope"></i> admisioneducap@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h4>Redes Sociales</h4>
+                <a href="https://www.instagram.com/escuelaandresbelloaraucania/" target="_blank"><i class="fab fa-instagram"></i> @escuelaandresbelloaraucania</a>
+                <a href="https://www.facebook.com/p/Escuela-Andr%C3%A9s-Bello-Millahu%C3%ADn-100064869914440/" target="_blank"><i class="fab fa-facebook"></i> Facebook Oficial</a>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces Rápidos</h4>
+                <a href="#inicio">Misión y Visión</a>
+                <a href="#documentos">Descarga de Documentos</a>
+                <a href="https://appoderado.cl/sistema/index-login">Acceso Apoderados</a>
+            </div>
+        </div>
+        
+        <div class="dev-credit">
+            <p>Desarrollado por: <strong>Andrés Urrea</strong></p>
+            <a href="https://wa.me/56930763222" target="_blank" class="btn-wsapp">
+                <i class="fab fa-whatsapp"></i> Contactar
+            </a>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT - Para la lógica de los modales -->
+    <script>
+        function openModal(id) {
+            document.getElementById(id).style.display = "block";
+            document.body.style.overflow = "hidden"; // Evita el scroll al estar abierto
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        // Cerrar modal al hacer clic fuera del contenido
+        window.onclick = function(event) {
+            if (event.target.className === 'modal') {
+                event.target.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        }
+    </script>
+</body>
+</html>
