@@ -367,15 +367,28 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero, .contacto-container {
-                grid-template-columns: 1fr;
-            }
-            .nav-links {
-                display: none; /* Simplificado para el ejemplo, podrías añadir un menú hamburguesa */
-            }
-            .section-title {
-                font-size: 1.8rem;
-            }
+    nav {
+        flex-direction: column; /* Pone el logo arriba y el menú abajo */
+        padding: 15px 0;
+    }
+    .nav-links {
+        display: flex;         /* ¡Ahora sí se verá! */
+        flex-wrap: wrap;       /* Si no caben, bajan a la siguiente línea */
+        justify-content: center;
+        gap: 10px;
+        padding: 10px;
+    }
+    .nav-links a {
+        font-size: 0.85rem;    /* Un poco más pequeño para que quepa en el celular */
+    }
+    .hero, .contacto-container {
+        grid-template-columns: 1fr;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
+        
         }
     </style>
 </head>
@@ -505,3 +518,4 @@
     </script>
 </body>
 </html>
+
